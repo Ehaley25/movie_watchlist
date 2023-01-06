@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Inter', sans-serif;
+}
+header{
+    /* position: relative; */
+    height: 25vh;
+    background-color: black;
+    padding-top: 2em;
+    margin-bottom: 3.6em;
+}
+.content-width{
+    width: 80%;
+    margin: 0 auto;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items:center ;
+    color: white;
+    padding-top: 4.75em;
+}
+header h1{
+    font-weight: 800;
+}
+.search{
+    display: flex;
+    padding-top: 4em;
+}
+.search input{
+    width:80%;
+    padding: .5em;
+}
+.search button{
+    width: 20%;
+    padding: .5em;
+}
+main div{
+    
+}
+main div img{
+    height: 100%;
+    width: 120px;
+}
+.movie{
+    display: flex;
+    gap: 1em;
+    margin-bottom: 3.6em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid black;
+}
+.flex{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.flex p{
+    font-weight: 400;
+    font-size: .8rem;
+    color: #111827;
+}
+.side-one image{
+    height: 100%;
+}
+.side-two{
+    padding-top: 1em;
+}
+.side-two h3{
+    font-weight: 500;
+    line-height: 1.2em;
+}
+.side-two div{
+    margin-bottom: 1.6em;
+}
+.description{
+    color: #6B7280;
+    font-weight: 400;
+    line-height: 1.25em;
+}
