@@ -8,9 +8,15 @@ body{
 header{
     /* position: relative; */
     height: 25vh;
-    background-color: black;
+    background:url(imgs/posters.png) black;
     padding-top: 2em;
     margin-bottom: 3.6em;
+}
+a{
+    color: white;
+}
+a:active,a:hover{
+    color: yellow;
 }
 .content-width{
     width: 80%;
@@ -38,9 +44,9 @@ header h1{
     width: 20%;
     padding: .5em;
 }
-main div{
+/* main div{
     
-}
+} */
 main div img{
     height: 100%;
     width: 120px;
@@ -79,4 +85,7 @@ main div img{
     color: #6B7280;
     font-weight: 400;
     line-height: 1.25em;
+}
+.movieID{
+    cursor: pointer;
 }

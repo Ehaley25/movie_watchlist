@@ -1,10 +1,12 @@
-import key from '/apiKey.js'
+import key from '/script/apiKey.js'
 
 let movieInfo = document.getElementById("movie-info")
 let movieDisplay = ''
 let watchList = []
+export let moviesFromLocalStorage = JSON.parse( localStorage.getItem("myWatchList") )
+// console.log(moviesFromLocalStorage)
 document.getElementById('search-movie').addEventListener('click',()=>{
-    console.log(movieInfo.value)
+    // console.log(movieInfo.value)
     fetch(`http://www.omdbapi.com/?apikey=${key}&s=${movieInfo.value}`)
         .then(res => res.json())
         .then(data => {
@@ -14,7 +16,7 @@ document.getElementById('search-movie').addEventListener('click',()=>{
                 fetch(`http://www.omdbapi.com/?apikey=${key}&i=${movie.imdbID}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+                    // console.log(data)
                     movieDisplay += `
                     <div class=" movie content-width">
                         <div class="side-one">
@@ -36,14 +38,16 @@ document.getElementById('search-movie').addEventListener('click',()=>{
                         </div>
                     </div>
                     `
-                    render()
+                    render(movieDisplay)
                 })
             }
         })
+        movieInfo.value = ''
+
 })
 
-function render(){
-    document.getElementById('inputMovies').innerHTML = movieDisplay
+export function render(html){
+    document.getElementById('inputMovies').innerHTML = html
 }
 
 document.addEventListener('click',(e)=>{
@@ -51,10 +55,15 @@ document.addEventListener('click',(e)=>{
         return
     }
     watchList.push(e.target.id)
-    console.log(watchList)
+    // console.log(watchList)
+    localStorage.setItem("myWatchList", JSON.stringify(watchList) )
+    // console.log(localStorage)
+    // for(let movies of watchList){
+    //     console.log(movies)
+    // }
 })
 
+if (moviesFromLocalStorage) {
+    watchList = moviesFromLocalStorage
+}
 
-
-// finish creating localstorage so users can add to their personal watchlist, deploy with API keyy hidden + working 
-// maybe find a cleaner way to get the ids' from each movie but for now it works.
